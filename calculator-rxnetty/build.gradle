@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+run {
+    mainClassName = "com.eloisapaz.cloud.tema08"
+}
+
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    maven { url 'http://repo.spring.io/libs-release' }
+    mavenCentral()
+    maven { url "http://oss.sonatype.org/content/groups/public/"}
+    mavenLocal()
+}
+
+def springVersion = '4.3.8.RELEASE'
+def slf4jVersion = '1.7.0'
+def netflixVersion = '2.2.0-rc.2'
+def guiceVersion = '3.0'
+def jettisonVersion = '1.2'
+
+dependencies {
+
+    compile([
+            "org.springframework:spring-core:${springVersion}",
+            "org.springframework:spring-context:${springVersion}",
+            "org.springframework:spring-beans:${springVersion}",
+            "org.springframework:spring-test:${springVersion}",
+            "org.slf4j:slf4j-api:${slf4jVersion}",
+            "org.slf4j:slf4j-simple:${slf4jVersion}",
+            "com.netflix.karyon:karyon2-core:${netflixVersion}",
+            "com.netflix.karyon:karyon2-jersey-blocking:${netflixVersion}",
+            "com.netflix.karyon:karyon2-archaius:${netflixVersion}",
+            "com.netflix.karyon:karyon2-servo:${netflixVersion}",
+            "com.netflix.karyon:karyon2-admin-web:${netflixVersion}",
+            "com.netflix.karyon:karyon2-eureka:${netflixVersion}",
+            "com.google.inject:guice:${guiceVersion}",
+            "org.codehaus.jettison:jettison:${jettisonVersion}"
+    ])
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

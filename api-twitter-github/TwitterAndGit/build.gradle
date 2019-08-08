@@ -1,0 +1,43 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.5.RELEASE'
+	id 'java'
+	id 'application'
+}
+
+run {
+	mainClassName = 'com.eloisapaz.cloud.microservice.Application'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.eloisapaz.cloud'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('springBootAdminVersion', "2.1.5")
+}
+
+jar {
+	manifest {
+		attributes 'Main-Class': 'com.eloisapaz.cloud.microservice.Application'
+	}
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'de.codecentric:spring-boot-admin-starter-server'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	compile group: 'org.apache.cxf', name: 'cxf-integration-cdi', version: '3.1.11'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "de.codecentric:spring-boot-admin-dependencies:${springBootAdminVersion}"
+	}
+}
