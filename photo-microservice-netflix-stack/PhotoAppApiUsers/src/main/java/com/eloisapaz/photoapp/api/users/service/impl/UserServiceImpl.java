@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.eloisapaz.photoapp.api.users.repository.UsersRepository;
 import com.eloisapaz.photoapp.api.users.entity.UserEntity;
 import com.eloisapaz.photoapp.api.users.service.UserService;
-import com.eloisapaz.photoapp.api.users.ui.model.response.UserDto;
+import com.eloisapaz.photoapp.api.users.shared.UserDto;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -28,7 +28,8 @@ public class UserServiceImpl implements UserService {
 		UserEntity userEntity = modelMapper.map(userDetails, UserEntity.class);
 		userEntity.setEncryptedPassword("testing");
 		usersRepository.save(userEntity);
-		return null;
+		UserDto returnValue = modelMapper.map(userEntity, UserDto.class);
+		return returnValue;
 	}
 
 }
