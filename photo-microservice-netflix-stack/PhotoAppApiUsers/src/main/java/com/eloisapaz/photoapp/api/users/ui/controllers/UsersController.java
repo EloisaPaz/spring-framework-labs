@@ -16,6 +16,7 @@ import com.eloisapaz.photoapp.api.users.service.UserService;
 import com.eloisapaz.photoapp.api.users.shared.UserDto;
 import com.eloisapaz.photoapp.api.users.ui.model.request.CreateUserRequestModel;
 import com.eloisapaz.photoapp.api.users.ui.model.response.CreateUserResponseModel;
+import org.springframework.http.MediaType;
 
 @RestController
 @RequestMapping("/users")
@@ -32,7 +33,10 @@ public class UsersController {
 		return "Working on port: " + environment.getProperty("local.server.port");
 	}
 	
-	@PostMapping
+	@PostMapping(
+			consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
+			produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE }
+			)
 	public ResponseEntity<CreateUserResponseModel> createUser(@Valid @RequestBody CreateUserRequestModel userDetails) {
 		ModelMapper modelMapper = new ModelMapper();
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
