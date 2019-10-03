@@ -1,8 +1,8 @@
 package com.eloisapaz.photoapp.api.users.service;
 
-import com.eloisapaz.photoapp.api.users.shared.UserDto;
+import com.eloisapaz.photoapp.api.users.ui.model.response.UserDto;
 
-public interface UserServie {
+public interface UserService {
 	
 	UserDto createUser(UserDto userDetails);
 }

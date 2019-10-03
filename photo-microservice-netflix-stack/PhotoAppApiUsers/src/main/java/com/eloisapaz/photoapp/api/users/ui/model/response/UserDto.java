@@ -1,4 +1,4 @@
-package com.eloisapaz.photoapp.api.users.shared;
+package com.eloisapaz.photoapp.api.users.ui.model.response;
 
 import java.io.Serializable;
 
