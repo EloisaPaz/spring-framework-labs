@@ -5,4 +5,5 @@ import com.eloisapaz.photoapp.api.users.entity.UserEntity;
 
 public interface UsersRepository extends CrudRepository<UserEntity, Long>{
 
+	UserEntity findByEmail(String email);
 }
