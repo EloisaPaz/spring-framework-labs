@@ -1,0 +1,24 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.7.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+}
+
+group = 'com.eloisapaz.coinchange'
+version = '2.1.7.RELEASE'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.0-m02'
+	compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.0'
+	compile group: 'org.apache.cxf', name: 'cxf-integration-cdi', version: '3.1.11'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testCompile group: 'junit', name: 'junit', version: '4.12'
+}
