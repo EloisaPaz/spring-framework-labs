@@ -1,4 +1,4 @@
-package com.eloisapaz.degenerateobjects;
+package com.eloisapaz.money;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.eloisapaz.degenerateobjects;
+package com.eloisapaz.money;
 
 public class Dollar {
 
