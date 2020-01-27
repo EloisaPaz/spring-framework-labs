@@ -2,7 +2,7 @@ package com.eloisapaz.money;
 
 public class Money implements Expression {
 
-    protected int amount;
+    protected final int amount;
     protected String currency;
 
     public Money(int amount, String currency) {
