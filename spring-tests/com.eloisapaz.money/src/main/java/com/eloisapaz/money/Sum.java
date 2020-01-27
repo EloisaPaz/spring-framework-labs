@@ -18,6 +18,11 @@ public class Sum implements Expression{
 
     @Override
     public Expression plus(Expression secondNum) {
-        return null;
+        return new Sum(this, secondNum);
+    }
+
+    @Override
+    public Expression times(int multiplier) {
+        return new Sum(firstNum.times(multiplier), secondNum.times(multiplier));
     }
 }
