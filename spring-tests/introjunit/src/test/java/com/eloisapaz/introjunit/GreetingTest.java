@@ -1,20 +1,24 @@
 package com.eloisapaz.introjunit;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class GreetingTest {
 
+    private Greeting greeting;
+
+    @BeforeEach
+    void setUp() {
+        greeting = new Greeting();
+    }
+
     @Test
     void testHelloWorld1() {
-        Greeting greeting = new Greeting();
         System.out.println(greeting.helloWorld());
     }
 
     @Test
     void testHelloWorld2() {
-        Greeting greeting = new Greeting();
         System.out.println(greeting.helloWorld("Lolla"));
     }
 }
