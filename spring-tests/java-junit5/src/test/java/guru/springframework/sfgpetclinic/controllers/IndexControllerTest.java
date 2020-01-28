@@ -10,6 +10,7 @@ import org.junit.jupiter.api.condition.*;
 
 import java.time.Duration;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
@@ -30,6 +31,8 @@ class IndexControllerTest {
 
         assertEquals("index", indexController.index(), () -> "Another Expensive Message " +
                 "Make me only if you have to");
+
+        assertThat(indexController.index()).isEqualTo("index");
     }
 
     @Test
