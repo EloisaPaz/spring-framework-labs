@@ -7,7 +7,7 @@ import org.junit.jupiter.api.TestInstance;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Tag("controller")
 public interface ControllerTest {
-    
+
     @BeforeAll
     default void beforeAll(){
         System.out.println("Lets do something here");
